@@ -2,7 +2,7 @@ from flask import abort, make_response
 
 
 def validate_model(cls, id):
-
+    # lower_name = cls.__name__.lower()
     try:
         id = int(id)
     except:

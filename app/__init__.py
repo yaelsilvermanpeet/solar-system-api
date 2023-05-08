@@ -23,7 +23,10 @@ def create_app(test_config=None):
 
     from app.models.planet import Planet 
 
-    from .planet_routes import planet_bp
+    from .routes.planet_routes import planet_bp
     app.register_blueprint(planet_bp)
     
+    from app.models.moon import Moon 
+    
+
     return app

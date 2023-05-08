@@ -1,7 +1,6 @@
 from app import db
 
 class Planet(db.Model):
-
     id = db.Column(
         db.Integer, 
         primary_key=True, 
@@ -15,12 +14,17 @@ class Planet(db.Model):
         db.String,
         nullable = False) 
     
+    moons = db.relationship("Planet", back_populates="moons")
+
+    
     def to_dict(self):
         return dict(
             id = self.id,
             name = self.name,
             description = self.description
         )
+    
+
     
     @classmethod
     def from_dict(cls, planet_data):
